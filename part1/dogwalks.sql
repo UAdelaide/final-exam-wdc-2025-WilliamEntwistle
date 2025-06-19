@@ -27,7 +27,7 @@ CREATE TABLE WalkRequests (
     status ENUM('open', 'accepted', 'completed', 'cancelled') DEFAULT 'open',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (dog_id) REFERENCES Dogs(dog_id)
-);
+); 
 
 CREATE TABLE WalkApplications (
     application_id INT AUTO_INCREMENT PRIMARY KEY,
