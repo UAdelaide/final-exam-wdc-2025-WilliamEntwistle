@@ -92,7 +92,9 @@ router.post('/logout', (req, res) => {
 // Get dogs for logged in user
 router.get('/mydogs', async (req, res) => {
   // statement to ensure user logged in
-  if
+  if (!req.session.user) {
+    return res.status(401).json
+  }
 });
 
 module.exports = router;
