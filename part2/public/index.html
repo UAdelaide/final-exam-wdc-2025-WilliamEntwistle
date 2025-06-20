@@ -103,7 +103,7 @@
           const dogs = await res.json();
 
           dogs.map(async (dog) => {
-            try image = 
+            try image = await fetch('https://dog.ceo/api/breeds/image/random');
           })
 
         }
