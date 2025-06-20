@@ -23,6 +23,7 @@
       <input v-model="form.password" type="password" placeholder="Enter Password"><br><br>
       <!-- Login button to trigger event -->
       <button type="button" @click="login">Login</button>
+      <!-- Error message display -->
       <p v-if="error">{{ error }}</p>
     </div>
   </div>
