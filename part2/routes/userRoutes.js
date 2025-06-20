@@ -80,7 +80,8 @@ router.post('/login', async (req, res) => {
 // Add a logout method
 router.post('/logout', (req, res) => {
   req.session.destroy(err => {
-    return res.status
+    return res.status(500).json({ error: 'Failed' });
+    
   })
 });
 
