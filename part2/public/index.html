@@ -61,7 +61,7 @@
             password: '',
           },
           error: '', // Holds error message
-          dogImage: ''
+          dogs: []
         };
       },
 
@@ -98,7 +98,9 @@
           }
         },
 
-        async loadDogs
+        async loadDogs() {
+
+        }
         async getDog() {
           try {
             let res = await fetch('https://dog.ceo/api/breeds/image/random');
