@@ -53,7 +53,9 @@
               })
             });
 
-            if (!res.ok) throw new Error('Failed Login')
+            if (!res.ok) throw new Error('Failed Login');
+
+            let role = await res.text
           }
         }
       }
