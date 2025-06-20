@@ -139,7 +139,7 @@
           try {
             const res = await fetch('/api/users/mydogs');
           } catch (err) {
-            error.value
+            error.value = 'Could not load'
           }
         }
 
