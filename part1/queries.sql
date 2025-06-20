@@ -39,6 +39,6 @@ SELECT u.username AS walker_username,
 COUNT(w.rating) AS total_ratings,
 AVG(w.rating) AS average_rating,
 COUNT(*) as completed_walks
-FROM  WalkRatings w
+FROM  WalkApplications w
 JOIN Users u ON w.walker_id = u.user_id
 WHERE w.status = 'completed'
