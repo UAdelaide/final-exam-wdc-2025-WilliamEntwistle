@@ -122,7 +122,8 @@
             await fetch('/api/users/logout', { method: 'POST' });
             window.location.href = 'index.html'; // back to Login page
           } catch (err) {
-            errir
+            errir.value = err.message;
+            message.value = ''
           }
         }
         onMounted(() => {
