@@ -98,6 +98,8 @@ router.get('/mydogs', async (req, res) => {
   // Logic to get dogs
   try {
 
+  } catch (err) {
+    res.status(500).json
   }
 });
 
