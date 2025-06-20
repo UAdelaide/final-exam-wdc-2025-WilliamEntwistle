@@ -130,7 +130,9 @@ app.get('/api/dogs', async (req, res) => {
     }
 });
 
-app.get('/api/walkers/summary')
+app.get('/api/walkers/summary', async (req, res) => {
+    
+});
 
 
 module.exports = app;
