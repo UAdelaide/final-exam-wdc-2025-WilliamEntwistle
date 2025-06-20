@@ -6,6 +6,6 @@ Values
 ('willwalker', 'will@example.com', 'hashed321', 'walker')
 ('brad234', 'brad@example.com', 'hashed654', 'owner');
 
-INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
+INSERT INTO Dogs (owner)
 Values
-((SELECT dog_id FROM Dogs WHERE name))
+((SELECT _id FROM Dogs WHERE name))
