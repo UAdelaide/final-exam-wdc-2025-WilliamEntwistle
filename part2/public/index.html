@@ -33,7 +33,7 @@
         return {
           message: 'Welcome to the Dog Walking Service!',
           form: {
-            email: '',
+            username: '',
             password: '',
           },
           error: ''
@@ -48,7 +48,7 @@
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
-                email: this.form.email,
+                username: this.form.username,
                 password: this.form.password
               })
             });
