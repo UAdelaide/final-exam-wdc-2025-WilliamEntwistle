@@ -16,10 +16,10 @@
     <!-- Login -->
     <div>
       <label>Username:</label><br>
-      <input v-model="form.username" type="text" placeholder="Enter Username"><br>
+      <input v-model="form.username" type="text" placeholder="Enter Username"><br><br>
 
       <label>Password:</label>
-      <input v-model="form.password" type="password" placeholder="Enter Password"><br>
+      <input v-model="form.password" type="password" placeholder="Enter Password"><br><br>
 
       <button type="button" @click="login">Login</button>
       <p v-if="error">{{ error }}</p>
