@@ -61,7 +61,7 @@
         async function getCurrentUsers() {
           try {
             const res = await fetch('/api/users/me');
-            if (!res)
+            if (!res.ok) throw new Error('Not logged in') // check to see if user is logged in
           }
         }
 
