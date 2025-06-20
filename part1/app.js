@@ -117,5 +117,7 @@ let db;
 })();
 
 
+app.get('/api/dogs')
+
 
 module.exports = app;
