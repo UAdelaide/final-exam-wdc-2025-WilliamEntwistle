@@ -2,10 +2,6 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
 
-// store user in session
-req.session.user = rows[0];
-res.json({ message: 'login successful', user: rows[0] });
-
 // GET all users (for admin/testing)
 router.get('/', async (req, res) => {
   try {
