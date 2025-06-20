@@ -19,7 +19,7 @@ app.use(session({
     secret: 'dog-secret',
     resave: false,
     saveUninitialized: false,
-    
+    cookie: { secure: false }
 }));
 
 app.use('/api/walks', walkRoutes);
