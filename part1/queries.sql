@@ -36,7 +36,7 @@ WHERE w.status = 'open';
 
 -- Query /api/walkers/summary
 SELECT u.username AS walker_username,
-COUNT(w.rating) AS total_ratings,
+COUNT(r.rating) AS total_ratings,
 AVG(w.rating) AS average_rating,
 COUNT(*) as completed_walks
 FROM  WalkApplications w
