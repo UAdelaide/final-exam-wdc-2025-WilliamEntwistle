@@ -22,7 +22,7 @@
       <input v-model="form.password" type="password" placeholder="Enter Password"><br>
 
       <button type="button" @click="login">Login</button>
-      <p v-if
+      <p v-if="error">{{ error }}</p>
     </div>
   </div>
 
