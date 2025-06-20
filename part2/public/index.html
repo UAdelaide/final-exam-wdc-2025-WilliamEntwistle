@@ -99,7 +99,8 @@
         },
 
         async loadDogs() {
-          const res = await fetch('/api/dogs');
+          try{
+                      const res = await fetch('/api/dogs');
           const dogs = await res.json();
 
           dogs.map(async (dog) => {
@@ -111,7 +112,11 @@
               return { dog, image: '' };
             }
           })
-        } catch (err)
+           }
+
+        }
+
+        }
       }
     }).mount('#app');
   </script>
