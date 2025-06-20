@@ -76,16 +76,7 @@
               })
             });
 
-            async getDog() {
-                    try {
-                        let res = await fetch('https://dog.ceo/api/breeds/image/random');
-                        let data = await res.json();
-                        this.dogImage = data.message;
-                    } catch (err) {
-                        console.error('Failed');
-                    }
-                }
-                
+
             // Throw error if incorrect details
             if (!res.ok) throw new Error('Failed Login');
 
@@ -104,6 +95,16 @@
             this.error = err.message;
           }
         }
+
+        async getDog() {
+                    try {
+                        let res = await fetch('https://dog.ceo/api/breeds/image/random');
+                        let data = await res.json();
+                        this.dogImage = data.message;
+                    } catch (err) {
+                        console.error('Failed');
+                    }
+                }
       }
     }).mount('#app');
   </script>
