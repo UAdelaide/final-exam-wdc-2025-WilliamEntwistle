@@ -8,4 +8,4 @@ Values
 
 INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
 Values
-()
+((SELECT dog_id FROM Dogs WHERE name))
