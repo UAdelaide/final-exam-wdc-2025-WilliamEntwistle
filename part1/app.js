@@ -155,7 +155,9 @@ app.get('/api/dogs', async (req, res) => {
 
 app.get('api/walkrequests/open' async (req, res) => {
     try {
-        const
+        const [rows] = await db.execute(`
+            `)
+            res
     } catch (err) {
         res.sendStatus(500).json({ error: 'Failed' });
     }
