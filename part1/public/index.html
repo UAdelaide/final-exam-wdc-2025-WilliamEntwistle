@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Dog of the day</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
@@ -21,12 +22,17 @@
             },
             methods: {
                 async getDog() {
-                    let res = await fetch('https://dog.ceo/api/breeds/image/random');
-                    let data =await res.json();
-                    this.dogImage = data.message;
+                    try {
+                        let res = await fetch('https://dog.ceo/api/breeds/image/random');
+                        let data = await res.json();
+                        this.dogImage = data.message;
+                    } catch (err) {
+
+                    }
                 }
             }
         });
     </script>
 </body>
+
 </html>
