@@ -16,7 +16,10 @@ const userRoutes = require('./routes/userRoutes');
 const session = require('express-session');
 
 app.use(session({
-    secret: 'dog-secret'
+    secret: 'dog-secret',
+    resave: false,
+    saveUninitialized: false,
+    
 }));
 
 app.use('/api/walks', walkRoutes);
