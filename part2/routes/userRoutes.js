@@ -3,7 +3,8 @@ const router = express.Router();
 const db = require('../models/db');
 
 // store user in session
-req.session.user = rows[0]
+req.session.user = rows[0];
+res.json({ message: 'login successful'})
 
 // GET all users (for admin/testing)
 router.get('/', async (req, res) => {
