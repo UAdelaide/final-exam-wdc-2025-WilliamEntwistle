@@ -30,8 +30,11 @@
                         console.error('Failed');
                     }
                 }
+            },
+            mounted() {
+                this.getDog();
             }
-        });
+        }).mount('#');
     </script>
 </body>
 
