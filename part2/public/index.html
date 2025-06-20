@@ -45,11 +45,11 @@
       },
 
       methods: {
-        async login() {
+        async login() { // Called when user clicks login button
           this.error = '';
           try {
             const res = await fetch('/api/users/login', {
-              method: 'POST',
+              method: 'POST', // Send post request to server
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
                 username: this.form.username,
