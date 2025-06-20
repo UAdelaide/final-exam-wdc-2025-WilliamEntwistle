@@ -21,28 +21,28 @@ app.use('/users', usersRouter);
 let db;
 
 (async () => {
-  try {
-    // Connect to MySQL without specifying a database
-    const connection = await mysql.createConnection({
-      host: 'localhost',
-      user: 'root',
-      password: '' // Set your MySQL root password
-    });
+    try {
+        // Connect to MySQL without specifying a database
+        const connection = await mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: '' // Set your MySQL root password
+        });
 
-    // Create the database if it doesn't exist
-    await connection.query('CREATE DATABASE IF NOT EXISTS testdb');
-    await connection.end();
+        // Create the database if it doesn't exist
+        await connection.query('CREATE DATABASE IF NOT EXISTS testdb');
+        await connection.end();
 
-    // Now connect to the created database
-    db = await mysql.createConnection({
-      host: 'localhost',
-      user: 'root',
-      password: '',
-      database: 'DogWalkService'
-    });
+        // Now connect to the created database
+        db = await mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: '',
+            database: 'DogWalkService'
+        });
 
-    // Create a table if it doesn't exist
-    await db.execute(`
+        // Create a table if it doesn't exist
+        await db.execute(`
     CREATE TABLE Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
@@ -52,7 +52,7 @@ let db;
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )`);
 
-    await db.execute(`
+        await db.execute(`
     CREATE TABLE Dogs (
     dog_id INT AUTO_INCREMENT PRIMARY KEY,
     owner_id INT NOT NULL,
@@ -62,7 +62,7 @@ let db;
     )`);
 
 
-    await db.execute(`
+        await db.execute(`
     CREATE TABLE WalkRequests (
     request_id INT AUTO_INCREMENT PRIMARY KEY,
     dog_id INT NOT NULL,
@@ -74,7 +74,7 @@ let db;
     FOREIGN KEY (dog_id) REFERENCES Dogs(dog_id)
     )`);
 
-    await db.execute(`
+        await db.execute(`
     CREATE TABLE WalkApplications (
     application_id INT AUTO_INCREMENT PRIMARY KEY,
     request_id INT NOT NULL,
@@ -86,7 +86,7 @@ let db;
     CONSTRAINT unique_application UNIQUE (request_id, walker_id)
     )`);
 
-    await db.execute(`
+        await db.execute(`
     CREATE TABLE WalkRatings (
     rating_id INT AUTO_INCREMENT PRIMARY KEY,
     request_id INT NOT NULL,
@@ -101,10 +101,10 @@ let db;
     CONSTRAINT unique_rating_per_walk UNIQUE (request_id)
     )`);
 
-    // Insert data if table is empty
-    const [[{ count }]] = await db.execute('SELECT COUNT(*) AS count FROM Users');
-    if (count === 0) {
-      await db.execute(`
+        // Insert data if table is empty
+        const [[{ count }]] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+        if (count === 0) {
+            await db.execute(`
         INSERT INTO users (username, email, password_hash, role)
         VALUES
         ('alice123', 'alice@example.com', 'hashed123', 'owner'),
@@ -114,7 +114,7 @@ let db;
         ('brad234', 'brad@example.com', 'hashed654', 'owner')
       `);
 
-    await db.execute(`
+            await db.execute(`
         INSERT INTO Dogs (owner_id, name, size)
         VALUES
         ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
@@ -124,7 +124,7 @@ let db;
         ((SELECT user_id FROM Users WHERE username = 'brad234'), 'Louis', 'small')
     `);
 
-    await db.execute(`
+            await db.execute(`
         INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
         VALUES
         ((SELECT dog_id FROM Dogs WHERE name = 'Max'), '2025-06-10 08:00:00', 30, 'Parklands', 'open'),
@@ -133,10 +133,10 @@ let db;
         ((SELECT dog_id FROM Dogs WHERE name = 'Buster'), '2025-06-10 10:45:00', 20, 'Dog Park', 'open'),
         ((SELECT dog_id FROM Dogs WHERE name = 'Louis'), '2025-06-10 11:30:00', 40, 'Plaza', 'accepted')
       `);
+        }
+    } catch (err) {
+        console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
     }
-  } catch (err) {
-    console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
-  }
 })();
 
 
@@ -147,7 +147,7 @@ app.get('/api/dogs', async (req, res) => {
             FROM Dogs d
             Join Users u ON d.owner_id = u.user_id
             `);
-            res.json(rows);
+        res.json(rows);
     } catch (err) {
         res.sendStatus(500).json({ error: 'Failed' });
     }
@@ -156,8 +156,13 @@ app.get('/api/dogs', async (req, res) => {
 app.get('api/walkrequests/open', async (req, res) => {
     try {
         const [rows] = await db.execute(`
+            SELECT w.requested_time, w.location, d.name AS dog_name, u.username AS owner_username
+FROM WalkRequests w
+JOIN Dogs d ON w.dog_id = d.dog_id
+JOIN Users u ON d.owner_id = u.user_id
+WHERE w.status = 'open';
             `);
-            res.json(rows);
+        res.json(rows);
     } catch (err) {
         res.sendStatus(500).json({ error: 'Failed' });
     }
