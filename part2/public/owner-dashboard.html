@@ -87,6 +87,7 @@
         const walks = ref([]);
         const message = ref('');
         const error = ref('');
+        const mydogs = ref
 
         async function loadWalks() {
           try {
@@ -132,7 +133,7 @@
             message.value = '';
           }
         }
-        
+
         onMounted(() => {
           loadWalks();
         });
