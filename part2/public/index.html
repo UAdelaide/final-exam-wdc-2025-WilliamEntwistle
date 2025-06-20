@@ -62,6 +62,8 @@
               window.location.href = 'owner-dashboard.html';
             } else if (role === 'walker') {
               window.location.href = 'walker-dashboard.html';
+            } else {
+              throw new Errot('Failed');
             }
           } catch (err) {
             this.error = err.message;
