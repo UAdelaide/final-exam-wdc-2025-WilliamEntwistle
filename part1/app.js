@@ -124,7 +124,9 @@ app.get('/api/dogs', async (req, res) => {
             FROM Dogs d
             Join Users u ON d.owner_id = user_id
             `);
-            
+            res.json(rows);
+    } catch (err) {
+        res.sendStatus
     }
 });
 
