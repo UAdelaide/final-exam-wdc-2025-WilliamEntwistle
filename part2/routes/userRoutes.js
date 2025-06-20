@@ -90,6 +90,8 @@ router.post('/logout', (req, res) => {
 });
 
 // Get dogs for logged in user
-router.get()
+router.get('/mydogs', async (req, res) => {
+  
+});
 
 module.exports = router;
