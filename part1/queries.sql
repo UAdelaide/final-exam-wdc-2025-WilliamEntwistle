@@ -47,4 +47,4 @@ WHERE w.status = 'completed'
 GROUP BY u.user_id, u.username;
 
 -- Add completed job
-((SELECT dog_id FROM Dogs WHERE name = 'Louis'), '2025-06-10 11:30:00', 40, 'Plaza', 'completed');
+((SELECT dog_id FROM Dogs WHERE name = 'Randy'), '2025-06-10 11:30:00', 40, 'Beach', 'completed');
