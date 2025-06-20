@@ -59,7 +59,7 @@ router.get('/me', (req, res) => {
 // POST LOGIN WITH USERNAME FIX
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
-
+  // Change the email inquiry to username
   try {
     const [rows] = await db.query(`
       SELECT user_id, username, role FROM Users
