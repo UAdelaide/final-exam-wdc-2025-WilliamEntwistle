@@ -15,7 +15,7 @@ app.use(cookieParser());
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
-
+const dogs = require()
 // Session
 var session = require('express-session');
 app.use(session({
