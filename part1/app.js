@@ -149,7 +149,7 @@ app.get('/api/dogs', async (req, res) => {
             `);
             res.json(rows);
     } catch (err) {
-        res.sendStatus(500).json({ error: 'Failed'});
+        res.sendStatus(500).json({ error: 'Failed' });
     }
 });
 
