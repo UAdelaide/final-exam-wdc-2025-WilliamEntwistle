@@ -155,9 +155,9 @@ app.get('/api/dogs', async (req, res) => {
 
 app.get('api/walkrequests/open' async (req, res) => {
     try {
-
+        const
     } catch (err) {
-        res.sendStatus(500)
+        res.sendStatus(500).json({ error: 'Failed' });
     }
 });
 
