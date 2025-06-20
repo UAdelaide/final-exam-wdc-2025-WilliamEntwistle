@@ -89,4 +89,7 @@ router.post('/logout', (req, res) => {
   });
 });
 
+// Get dogs for logged in user
+router.get()
+
 module.exports = router;
