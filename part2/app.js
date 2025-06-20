@@ -15,7 +15,7 @@ app.use(cookieParser());
 // Routes
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
-const dogs = require()
+const dogs = require('./routes/dogs');
 // Session
 var session = require('express-session');
 app.use(session({
@@ -27,19 +27,6 @@ app.use(session({
 
 app.use('/api/walks', walkRoutes);
 app.use('/api/users', userRoutes);
-app.use('/api.dogs', dogs)
+app.use('/api.dogs', dogs);
 // Export the app instead of listening here
 module.exports = app;
-
-app.get('/api/dogs', async (req, res) => {
-    try {
-        const [rows] = await db.execute(`
-            SELECT d.name AS dog_name, d.size, u.username AS owner_username
-            FROM Dogs d
-            Join Users u ON d.owner_id = u.user_id
-            `);
-            res.json(rows);
-    } catch (err) {
-        res.sendStatus(500).json({ error: 'Failed' });
-    }
-});
