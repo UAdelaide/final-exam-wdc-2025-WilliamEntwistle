@@ -43,3 +43,4 @@ FROM  WalkApplications w
 JOIN Users u ON w.walker_id = u.user_id
 LEFT JOIN WalkRatings r ON r.application_id = w.application_id
 WHERE w.status = 'completed'
+GROUP BY u.user_id, u.username;
