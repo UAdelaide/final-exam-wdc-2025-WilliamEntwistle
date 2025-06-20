@@ -97,7 +97,7 @@ router.get('/mydogs', async (req, res) => {
   }
   // Logic to get dogs
   try {
-    
+    var ownerId = req.session.user.user_id;
   } catch (err) {
     res.status(500).json({ error: 'failed' });
   }
