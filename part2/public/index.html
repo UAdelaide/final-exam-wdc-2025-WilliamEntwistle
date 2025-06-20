@@ -57,6 +57,7 @@
               })
             });
 
+            // Throw error if incorrect details
             if (!res.ok) throw new Error('Failed Login');
 
             const data = await res.json();
