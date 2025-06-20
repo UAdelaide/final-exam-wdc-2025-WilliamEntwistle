@@ -159,7 +159,7 @@ app.get('/api/walkers/summary', async (req, res) => {
             SELECT username AS walker, COUNT * AS completed_walks,
 
             `)
-    }
+    } 
 });
 
 
