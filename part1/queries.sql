@@ -35,3 +35,4 @@ JOIN Users u ON d.owner_id = u.user_id
 WHERE w.status = 'open';
 
 -- Query /api/walkers/summary
+SELECT u.username AS walker_
