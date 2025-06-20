@@ -138,7 +138,7 @@
         async function loadMyDogs() {
           try {
             const res = await fetch('/api/users/mydogs');
-            mydogs.value = await res.json();
+            myDogs.value = await res.json();
           } catch (err) {
             error.value = 'Could not load';
           }
@@ -154,7 +154,7 @@
           walks,
           message,
           error,
-          mydogs, // added to return
+          myDogs, // added to return
           logout, // added logout into the return
           submitWalkRequest
         };
