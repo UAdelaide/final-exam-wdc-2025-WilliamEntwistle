@@ -20,8 +20,12 @@
             methods: {
                 async getDog() {
                     let res = await fetch('https://dog.ceo/api/breeds/image/random');
-                    let data =await res.json()
+                    let data =await res.json();
+                    this.dogImage = data.message;
                 }
+            },
+            mounted() {
+                
             }
         })
     </script>
