@@ -65,7 +65,7 @@
             if (!res.ok) throw new Error('Not logged in') // check to see if user is logged in
           } catch (err) {
             error.value = err.message;
-            
+            return null;
           }
         }
 
