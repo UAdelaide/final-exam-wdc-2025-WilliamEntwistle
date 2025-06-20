@@ -30,3 +30,4 @@ Join Users u ON d.owner_id = u.user_id;
 -- Query /api/walkrequests/open
 SELECT w.requested_time, w.location, d.name AS dog_name, u.username AS owner_username
 FROM WalkRequests w
+JOIN Dogs d ON w.dog_id = d.dog_id
