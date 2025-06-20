@@ -25,6 +25,8 @@
             <!--<input v-model="form.dog_id" type="number" class="form-control" required>-->
             <!-- Change the logic doe dog id to a dropdown choice -->
              <select v-model="form.dog_id" class="form-control" required>
+              <!-- Create a placeholder and then the vue instance -->
+               
               <option v-for="dog in myDogs" v-bind:value="dog.dog_id">{{ dog.name }}</option>
              </select>
           </div>
