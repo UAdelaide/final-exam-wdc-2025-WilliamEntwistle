@@ -8,7 +8,7 @@
 
 <body>
     <h1>Pig of the Day</h1>
-    <img v-bind src="dogImage" class="dog-image" alt="sada ">
+    <img v-bind:src="dogImage" class="dog-image" v-bind:alt="sada ">
     <button v-on:click="getDog">get dog</button>
     <script>
         const { createApp } = Vue;
