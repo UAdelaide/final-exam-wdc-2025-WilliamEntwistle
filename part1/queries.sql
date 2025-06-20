@@ -13,3 +13,5 @@ VALUES
 ((SELECT user_id FROM Users WHERE username = 'brad234'), 'Barney', 'large'),
 ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Buster', 'medium'),
 ((SELECT user_id FROM Users WHERE username = 'brad234'), 'Louis', 'small');
+
+INSERT INTO WalkRequests (dog_id, req)
