@@ -93,11 +93,12 @@ router.post('/logout', (req, res) => {
 router.get('/mydogs', async (req, res) => {
   // statement to ensure user logged in
   if (!req.session.user) {
-    return res.status(401).json({ error: 'Not logged' });
+    return res.status(401).json({ error: 'Not logged in' });
   }
   // Logic to get dogs
   try {
-    var ownerId = req.session.user.user_id; // hmm
+    const ownerId = req.session.user.user_id;
+    const 
   } catch (err) {
     res.status(500).json({ error: 'failed' });
   }
