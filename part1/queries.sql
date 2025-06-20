@@ -8,4 +8,4 @@ Values
 
 INSERT INTO Dogs (owner_id, name, size)
 VALUES
-((SELECT user_id FROM Dogs WHERE name))
+((SELECT user_id FROM Users WHERE username ))
