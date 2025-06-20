@@ -11,7 +11,13 @@
     <img v-bind:src="dogImage" src="https://dog.ceo/api/breeds/image/random Fetch!" class="dog-image" alt=" ">
     <script>
         const { createApp } = Vue;
-        createApp
+        createApp({
+            data() {
+                return {
+                    dogImage: '';
+                }
+            }
+        })
     </script>
 </body>
 </html>
