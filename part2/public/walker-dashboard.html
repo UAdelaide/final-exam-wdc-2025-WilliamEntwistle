@@ -77,7 +77,7 @@
           }
         }
 
-        //logout function for walker
+        // logout function for walker
         async function logout() {
           try {
             await fetch('/api/users/logout', { method: 'POST' });
@@ -96,7 +96,7 @@
           walks,
           message,
           error,
-          logout,
+          logout, // added logout to return
           applyToWalk
         };
       }
