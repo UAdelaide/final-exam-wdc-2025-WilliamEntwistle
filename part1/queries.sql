@@ -26,3 +26,6 @@ VALUES
 SELECT d.name AS dog_name, d.size, u.username AS owner_username
 FROM Dogs d
 Join Users u ON d.owner_id = u.user_id;
+
+-- Query /api/walkrequests/open
+SELECT w
