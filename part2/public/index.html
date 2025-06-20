@@ -18,10 +18,10 @@
       <!-- Username input -->
       <label>Username:</label><br>
       <input v-model="form.username" type="text" placeholder="Enter Username"><br><br>
-
+      <!-- Password input -->
       <label>Password:</label><br>
       <input v-model="form.password" type="password" placeholder="Enter Password"><br><br>
-
+      <!-- Login button to trigger event -->
       <button type="button" @click="login">Login</button>
       <p v-if="error">{{ error }}</p>
     </div>
