@@ -160,7 +160,7 @@ app.get('api/walkrequests/open', async (req, res) => {
             FROM WalkRequests w
             JOIN Dogs d ON w.dog_id = d.dog_id
             JOIN Users u ON d.owner_id = u.user_id
-            WHERE w.status = 'open';
+            WHERE w.status = 'open'
             `);
         res.json(rows);
     } catch (err) {
