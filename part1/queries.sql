@@ -28,4 +28,4 @@ FROM Dogs d
 Join Users u ON d.owner_id = u.user_id;
 
 -- Query /api/walkrequests/open
-SELECT w
+SELECT w.requested_time, w.location, d.name AS dog_name
