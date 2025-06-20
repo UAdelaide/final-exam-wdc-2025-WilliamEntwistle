@@ -41,4 +41,5 @@ AVG(r.rating) AS average_rating,
 COUNT(w.application_id) as completed_walks
 FROM  WalkApplications w
 JOIN Users u ON w.walker_id = u.user_id
+JOIN WalkRatings r ON w.
 WHERE w.status = 'completed'
