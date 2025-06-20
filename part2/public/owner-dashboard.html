@@ -121,6 +121,8 @@
           try {
             await fetch('/api/users/logout', { method: 'POST' });
             window.location.href = 'index.html'; // back to Login page
+          } catch (err) {
+            errir
           }
         }
         onMounted(() => {
