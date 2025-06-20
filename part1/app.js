@@ -102,7 +102,7 @@ let db;
     )`);
 
     // Insert data if table is empty
-    const [rows] = await db.execute('SELECT COUNT(*) AS count FROM books');
+    const [[{ count }]] = await db.execute('SELECT COUNT(*) AS count FROM books');
     if (rows[0].count === 0) {
       await db.execute(`
         INSERT INTO books (title, author) VALUES
@@ -134,7 +134,7 @@ app.get('/api/walkers/summary', async (req, res) => {
     try {
         const [rows] = await db.execute(`
             SELECT username AS walker, COUNT * AS completed_walks,
-            
+
             `)
     }
 });
