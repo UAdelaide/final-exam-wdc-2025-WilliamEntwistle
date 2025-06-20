@@ -55,7 +55,11 @@
 
             if (!res.ok) throw new Error('Failed Login');
 
-            let role = await res.text
+            let role = await res.text();
+
+            if (role === 'owner') {
+              window
+            }
           }
         }
       }
