@@ -8,7 +8,7 @@
 
 <body>
     <h1>Pig of the Day</h1>
-    <img v-bind:src="dogImage" src="https://dog.ceo/api/breeds/image/random Fetch!" class="dog-image" alt=" ">
+    <img v-bind:src="dogImage" src="https://dog.ceo/api/breeds/image/random" class="dog-image" alt=" ">
     <script>
         const { createApp } = Vue;
         createApp({
@@ -19,7 +19,8 @@
             },
             methods: {
                 async getDog() {
-                    let res = await.fetch('https://dog.ceo/api/breeds/image/random')
+                    let res = await fetch('https://dog.ceo/api/breeds/image/random');
+                    let data =await res.json()
                 }
             }
         })
