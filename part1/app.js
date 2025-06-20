@@ -119,7 +119,7 @@ let db;
 
 app.get('/api/dogs', async (req, res) =>
 
-)
+);
 
 
 module.exports = app;
