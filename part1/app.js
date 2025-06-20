@@ -153,14 +153,14 @@ app.get('/api/dogs', async (req, res) => {
     }
 });
 
-app.get('/api/walkers/summary', async (req, res) => {
-    try {
-        const [rows] = await db.execute(`
-            SELECT username AS walker, COUNT * AS completed_walks,
+// app.get('/api/walkers/summary', async (req, res) => {
+//     try {
+//         const [rows] = await db.execute(`
+//             SELECT username AS walker, COUNT * AS completed_walks,
 
-            `)
-    }
-});
+//             `)
+//     }
+// });
 
 
 module.exports = app;
