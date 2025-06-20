@@ -10,7 +10,7 @@
 <body class="bg-light">
   <div id="app" class="container py-4">
     <h1 class="mb-4 text-success">Walker Dashboard</h1>
-    
+
     <!-- Add in Button for Logout -->
     <button @click="logout" type="button">Logout</button>
 
@@ -77,6 +77,18 @@
           }
         }
 
+        async function logout() {
+          try {
+            await fetch('/api/users/logout', { method: 'POST' });
+            window.location.href = 'index.html'; // back to Login page
+          } catch (err) {
+            errir.value = err.message;
+            message.value = '';
+          }
+}
+
+
+
         onMounted(() => {
           loadWalkRequests();
         });
@@ -85,6 +97,7 @@
           walks,
           message,
           error,
+          logout,
           applyToWalk
         };
       }
