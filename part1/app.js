@@ -113,6 +113,26 @@ let db;
         ('willwalker', 'will@example.com', 'hashed321', 'walker'),
         ('brad234', 'brad@example.com', 'hashed654', 'owner')
       `);
+
+    await db.execute(`
+        INSERT INTO users (username, email, password_hash, role)
+        VALUES
+        ('alice123', 'alice@example.com', 'hashed123', 'owner'),
+        ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
+        ('carol123', 'carol@example.com', 'hashed789', 'owner'),
+        ('willwalker', 'will@example.com', 'hashed321', 'walker'),
+        ('brad234', 'brad@example.com', 'hashed654', 'owner')
+      `);
+
+    await db.execute(`
+        INSERT INTO users (username, email, password_hash, role)
+        VALUES
+        ('alice123', 'alice@example.com', 'hashed123', 'owner'),
+        ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
+        ('carol123', 'carol@example.com', 'hashed789', 'owner'),
+        ('willwalker', 'will@example.com', 'hashed321', 'walker'),
+        ('brad234', 'brad@example.com', 'hashed654', 'owner')
+      `);
     }
   } catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
