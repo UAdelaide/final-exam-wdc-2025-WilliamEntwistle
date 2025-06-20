@@ -99,23 +99,20 @@
         },
 
         async loadDogs() {
-          try{
-                      const res = await fetch('/api/dogs');
-          const dogs = await res.json();
+          try {
+            const res = await fetch('/api/dogs');
+            const dogs = await res.json();
 
-          dogs.map(async (dog) => {
-            try {
-              const image = await fetch('https://dog.ceo/api/breeds/image/random');
-              const imgdata = await image.json();
-              return { dog, image: imgdata.message };
-            } catch {
-              return { dog, image: '' };
-            }
-          })
-           }
-
-        }
-
+            dogs.map(async (dog) => {
+              try {
+                const image = await fetch('https://dog.ceo/api/breeds/image/random');
+                const imgdata = await image.json();
+                return { dog, image: imgdata.message };
+              } catch {
+                return { dog, image: '' };
+              }
+            })
+          }
         }
       }
     }).mount('#app');
