@@ -133,7 +133,8 @@ app.get('/api/dogs', async (req, res) => {
 app.get('/api/walkers/summary', async (req, res) => {
     try {
         const [rows] = await db.execute(`
-            SELECT username `)
+            SELECT username From user_id AS walker
+            `)
     }
 });
 
