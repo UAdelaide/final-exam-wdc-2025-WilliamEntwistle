@@ -137,7 +137,9 @@
         // create function to get owners dogs names
         async function loadMyDogs() {
           try {
-            const res = await fetch
+            const res = await fetch('/api/users/mydogs');
+          } catch (err) {
+            error.value
           }
         }
 
