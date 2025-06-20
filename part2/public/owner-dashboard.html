@@ -123,9 +123,10 @@
             window.location.href = 'index.html'; // back to Login page
           } catch (err) {
             errir.value = err.message;
-            message.value = ''
+            message.value = '';
           }
         }
+        
         onMounted(() => {
           loadWalks();
         });
