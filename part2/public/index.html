@@ -46,6 +46,26 @@
     </table>
   </div>
 
+          const { createApp } = Vue;
+        createApp({
+            data() {
+                return {
+                    dogImage: '',
+                };
+            },
+            methods: {
+                async getDog() {
+                    try {
+                        let res = await fetch('https://dog.ceo/api/breeds/image/random');
+                        let data = await res.json();
+                        this.dogImage = data.message;
+                    } catch (err) {
+                        console.error('Failed');
+                    }
+                }
+            },
+
+        })
   <script>
 
     const { createApp } = Vue;
