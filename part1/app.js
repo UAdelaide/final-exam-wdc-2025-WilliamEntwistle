@@ -105,10 +105,7 @@ let db;
     const [[{ count }]] = await db.execute('SELECT COUNT(*) AS count FROM Users');
     if (count === 0) {
       await db.execute(`
-        INSERT INTO books (title, author) VALUES
-        ('1984', 'George Orwell'),
-        ('To Kill a Mockingbird', 'Harper Lee'),
-        ('Brave New World', 'Aldous Huxley')
+
       `);
     }
   } catch (err) {
