@@ -1,5 +1,5 @@
 INSERT INTO users (username, email, password_hash, role)
-Values
+VALUES
 ('alice123', 'alice@example.com', 'hashed123', 'owner'),
 ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
 ('carol123', 'carol@example.com', 'hashed789', 'owner'),
@@ -14,4 +14,6 @@ VALUES
 ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Buster', 'medium'),
 ((SELECT user_id FROM Users WHERE username = 'brad234'), 'Louis', 'small');
 
-INSERT INTO WalkRequests (dog_id, req)
+INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status)
+VALUES
+()
