@@ -171,7 +171,15 @@ app.get('/api/walkrequests/open', async (req, res) => {
 app.get('/api/walkers/summary', async (req, res) => {
     try {
         const [rows] = await db.execute(`
-
+            SELECT u.username AS walker_username,
+            COUNT(r.rating) AS total_ratings,
+            AVG(r.rating) AS average_rating,
+            COUNT(w.application_id) as completed_walks
+            FROM  WalkApplications w
+            JOIN Users u ON w.walker_id = u.user_id
+            LEFT JOIN WalkRatings r ON r.application_id = w.application_id
+            WHERE w.status = 'completed'
+            GROUP BY u.user_id, u.username;
             `);
     } catch (err) {
         res.status(500).json({ error: 'Failed' });
