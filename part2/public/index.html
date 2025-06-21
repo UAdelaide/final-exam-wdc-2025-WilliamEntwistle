@@ -98,23 +98,23 @@
           }
         },
 
-        async loadDogs() {
-          try {
-            const res = await fetch('/api/dogs');
-            const dogs = await res.json();
+        // async loadDogs() {
+        //   try {
+        //     const res = await fetch('/api/dogs');
+        //     const dogs = await res.json();
 
-            dogs.map(async (dog) => {
-              try {
-                const image = await fetch('https://dog.ceo/api/breeds/image/random');
-                return { dog, image };
-              } catch {
-                return;
-              }
-            })
-          } catch (err) {
-            this.error = error.message;
-          }
-        }
+        //     dogs.map(async (dog) => {
+        //       try {
+        //         const image = await fetch('https://dog.ceo/api/breeds/image/random');
+        //         return { dog, image };
+        //       } catch {
+        //         return;
+        //       }
+        //     })
+        //   } catch (err) {
+        //     this.error = error.message;
+        //   }
+        // }
       }
     }).mount('#app');
   </script>
